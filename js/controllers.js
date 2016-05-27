@@ -2,25 +2,81 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
-.controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+.controller('usersCtrl', function($scope, $stateParams, Users) {
 
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
+    $scope.find=function () {
+       $scope.users=Users.query();
+    };
+
+    $scope.findOne=function () {
+       $scope.user=Users.get({userID : $stateParams.userID});
+    };
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+.controller('ReportesCtrl', function($scope, $stateParams, Reportes) {
+  $scope.find=function () {
+       $scope.reportes=Reportes.query();
+    };
+
+    $scope.findOne=function () {
+       $scope.reporte=Reportes.get({reporteID : $stateParams.reporteID});
+  };  
 })
 
+.controller('graficaCtrl', function ($scope) {
+   var pubnub = PUBNUB.init({
+    publish_key: 'pub-c-0bc83ee5-cdfd-4615-964f-0fa183fe86a9',
+    subscribe_key: 'sub-c-981320b8-08cc-11e6-8c3e-0619f8945a4f'
+    });
+   var channel = 'imu-mpu6050';
+    eon.chart({
+    channel: channel,
+    generate: {
+    bindto: '#temp',
+    data: {
+      type: 'line',
+    },
+    axis: {
+      x: {
+        type: 'timeseries',
+        tick: {
+          format: '%H:%m:%S',
+          fit: true
+        },
+        label: {
+          text: 'Time',
+        }
+      },
+      y: {
+        label: {
+          text: 'IMU',
+          position: 'outer-middle'
+        },
+        tick: {
+          format: function (d) {
+            var df = Number( d3.format('.2f')(d) );
+            return df;
+          }
+        }
+      }
+  }
+},
+//history:true,
+pubnub: pubnub,
+limit: 30,
+transform: function(m) {
+  return { eon: {
+      accelx: m.accelx,
+      accely: m.accely,
+      accelz: m.accelz, 
+        gyrox: m.gyrox,
+        gyroy: m.gyroy,
+        gyroz: m.gyroz
+    }}
+  }
+});
+
+})
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true

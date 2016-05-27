@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'ngResource', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -50,12 +50,51 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
+   .state('tab.users', {
+    url: '/users',
+    views: {
+      'tab-users': {
+        templateUrl: 'templates/users.html',
+        controller: 'usersCtrl'
+      }
+    }
+  })
+
+    .state('tab.userDetail', {
+    url: '/users/:userID',
+    views: {
+      'tab-users': {
+        templateUrl: 'templates/usersDetail.html',
+        controller: 'usersCtrl'
+      }
+    }
+  })
+
+   .state('tab.reportes', {
+    url: '/reportes',
+    views: {
+      'tab-reportes': {
+        templateUrl: 'templates/reportes.html',
+        controller: 'ReportesCtrl'
+      }
+    }
+  })
+
+    .state('tab.reporteDetail', {
+    url: '/reportes/:reporteID',
+    views: {
+      'tab-reportes': {
+        templateUrl: 'templates/reporteDetail.html',
+        controller: 'ReportesCtrl'
+      }
+    }
+  })
+  .state('tab.grafica', {
+      url: '/grafica',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
+        'tab-grafica': {
+          templateUrl: 'templates/grafica.html',
+          controller: 'graficaCtrl'
         }
       }
     })

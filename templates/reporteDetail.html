@@ -1,0 +1,17 @@
+<ion-view view-title="{{reporte.created|date:'medium'}}" ng-init="findOne()">
+
+  <ion-content class="padding">
+  <h1>Reporte del {{reporte.created|date:'medium'}}</h1>
+
+    <p>
+       {{reporte.accelx}}
+          {{reporte.accely}}
+           {{reporte.accelz}}
+            {{reporte.gyrox}}
+            {{reporte.gyroy}}
+            {{reporte.gyroz}}
+            {{reporte.humedad}}
+    </p>
+    
+  </ion-content>
+</ion-view>
