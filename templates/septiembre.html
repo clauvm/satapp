@@ -1,7 +1,6 @@
 <ion-view view-title="Reportes" ng-init="find()">
-     
-
   <ion-content>
+  <p ng-show="!septiembre(reporte.created)" style="font-size: 20px">No existen registros que correspondan con el mes de septiembre</p>
     <ion-list>
       <ion-item ng-repeat="reporte in reportes | orderBy: 'reporte.created':true" ng-show="septiembre(reporte.created)" href="#/tab/reportes/{{reporte._id}}">
      {{reporte.created|date:'medium'}}   
