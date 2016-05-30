@@ -20,7 +20,15 @@ angular.module('starter.controllers', [])
 
     $scope.findOne=function () {
        $scope.reporte=Reportes.get({reporteID : $stateParams.reporteID});
-  };  
+  }; 
+   
+   $scope.ultimaSemana = function (date) {
+     var fecha = moment(date); 
+     var fecha1 = moment(fecha).format('YYYY-MM-DD');
+     var fecha2 = moment().format('YYYY-MM-DD');
+     var fecha3 = moment(fecha2).subtract(7, 'days');
+    return moment(fecha).isBetween(fecha3, fecha2);
+}
 })
 
 .controller('graficaCtrl', function ($scope) {

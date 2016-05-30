@@ -70,11 +70,151 @@ angular.module('starter', ['ionic', 'ngResource', 'starter.controllers', 'starte
     }
   })
 
-   .state('tab.reportes', {
+    .state('tab.reportes', {
     url: '/reportes',
     views: {
       'tab-reportes': {
         templateUrl: 'templates/reportes.html',
+        controller: 'ReportesCtrl'
+      }
+    }
+  })
+
+   .state('tab.listaTodos', {
+    url: '/listaTodos',
+    views: {
+      'tab-reportes': {
+        templateUrl: 'templates/listaTodos.html',
+        controller: 'ReportesCtrl'
+      }
+    }
+  })
+
+   .state('tab.ultimaSemana', {
+    url: '/ultimaSemana',
+    views: {
+      'tab-reportes': {
+        templateUrl: 'templates/ultimaSemana.html',
+        controller: 'ReportesCtrl'
+      }
+    }
+  })
+
+   .state('tab.enero', {
+    url: '/enero',
+    views: {
+      'tab-reportes': {
+        templateUrl: 'templates/enero.html',
+        controller: 'ReportesCtrl'
+      }
+    }
+  })
+
+   .state('tab.febrero', {
+    url: '/febrero',
+    views: {
+      'tab-reportes': {
+        templateUrl: 'templates/febrero.html',
+        controller: 'ReportesCtrl'
+      }
+    }
+  })
+
+   .state('tab.marzo', {
+    url: '/marzo',
+    views: {
+      'tab-reportes': {
+        templateUrl: 'templates/marzo.html',
+        controller: 'ReportesCtrl'
+      }
+    }
+  })
+
+   .state('tab.abril', {
+    url: '/abril',
+    views: {
+      'tab-reportes': {
+        templateUrl: 'templates/abril.html',
+        controller: 'ReportesCtrl'
+      }
+    }
+  })
+
+   .state('tab.mayo', {
+    url: '/mayo',
+    views: {
+      'tab-reportes': {
+        templateUrl: 'templates/mayo.html',
+        controller: 'ReportesCtrl'
+      }
+    }
+  })
+
+   .state('tab.junio', {
+    url: '/junio',
+    views: {
+      'tab-reportes': {
+        templateUrl: 'templates/junio.html',
+        controller: 'ReportesCtrl'
+      }
+    }
+  })
+
+   .state('tab.julio', {
+    url: '/julio',
+    views: {
+      'tab-reportes': {
+        templateUrl: 'templates/julio.html',
+        controller: 'ReportesCtrl'
+      }
+    }
+  })
+
+   .state('tab.agosto', {
+    url: '/agosto',
+    views: {
+      'tab-reportes': {
+        templateUrl: 'templates/agosto.html',
+        controller: 'ReportesCtrl'
+      }
+    }
+  })
+
+   .state('tab.septiembre', {
+    url: '/septiembre',
+    views: {
+      'tab-reportes': {
+        templateUrl: 'templates/septiembre.html',
+        controller: 'ReportesCtrl'
+      }
+    }
+  })
+
+   .state('tab.octubre', {
+    url: '/octubre',
+    views: {
+      'tab-reportes': {
+        templateUrl: 'templates/octubre.html',
+        controller: 'ReportesCtrl'
+      }
+    }
+  })
+
+   .state('tab.noviembre', {
+    url: '/noviembre',
+    views: {
+      'tab-reportes': {
+        templateUrl: 'templates/noviembre.html',
+        controller: 'ReportesCtrl'
+      }
+    }
+  })
+
+   .state('tab.diciembre', {
+    url: '/diciembre',
+    views: {
+      'tab-reportes': {
+        templateUrl: 'templates/diciembre.html',
         controller: 'ReportesCtrl'
       }
     }
