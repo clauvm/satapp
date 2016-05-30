@@ -258,13 +258,15 @@ transform: function(m) {
 
 .controller('mineriaCtrl', function ($scope, $http) {
    $scope.resultado = "esperando...";
-   $scope.valorSuelo = function () {
+   $scope.prueba="";
+   console.log($scope.prueba);
+   $scope.valorSuelo = function (data) {
      $http(
      {
       url: 'http://satdeslizamientos-cavm.rhcloud.com/mineriaDatos',
       method: 'POST',
       data: {
-        suelo: $scope.suelo
+        suelo: data
       }
      }).
      then(function (response) {
