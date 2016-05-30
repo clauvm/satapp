@@ -28,7 +28,104 @@ angular.module('starter.controllers', [])
      var fecha2 = moment().format('YYYY-MM-DD');
      var fecha3 = moment(fecha2).subtract(7, 'days');
     return moment(fecha).isBetween(fecha3, fecha2);
-}
+};
+
+$scope.enero = function (date) {
+     var fecha = moment(date); 
+     var fecha1=moment(fecha).format('MM');
+     var fecha2=moment('2016-01-01');
+     var fecha3=moment(fecha2).format('MM');
+    return moment(fecha1).isSame(fecha3);
+};
+
+$scope.febrero = function (date) {
+     var fecha = moment(date); 
+     var fecha1=moment(fecha).format('MM');
+     var fecha2=moment('2016-02-01');
+     var fecha3=moment(fecha2).format('MM');
+    return moment(fecha1).isSame(fecha3);
+};
+
+$scope.marzo = function (date) {
+     var fecha = moment(date); 
+     var fecha1=moment(fecha).format('MM');
+     var fecha2=moment('2016-03-01');
+     var fecha3=moment(fecha2).format('MM');
+    return moment(fecha1).isSame(fecha3);
+};
+
+$scope.abril = function (date) {
+     var fecha = moment(date); 
+     var fecha1=moment(fecha).format('MM');
+     var fecha2=moment('2016-04-01');
+     var fecha3=moment(fecha2).format('MM');
+    return moment(fecha1).isSame(fecha3);
+};
+
+$scope.mayo = function (date) {
+     var fecha = moment(date); 
+     var fecha1=moment(fecha).format('MM');
+     var fecha2=moment('2016-05-01');
+     var fecha3=moment(fecha2).format('MM');
+    return moment(fecha1).isSame(fecha3);
+};
+
+$scope.junio = function (date) {
+     var fecha = moment(date); 
+     var fecha1=moment(fecha).format('MM');
+     var fecha2=moment('2016-06-01');
+     var fecha3=moment(fecha2).format('MM');
+    return moment(fecha1).isSame(fecha3);
+};
+
+$scope.julio = function (date) {
+     var fecha = moment(date); 
+     var fecha1=moment(fecha).format('MM');
+     var fecha2=moment('2016-07-01');
+     var fecha3=moment(fecha2).format('MM');
+    return moment(fecha1).isSame(fecha3);
+};
+
+$scope.agosto = function (date) {
+     var fecha = moment(date); 
+     var fecha1=moment(fecha).format('MM');
+     var fecha2=moment('2016-08-01');
+     var fecha3=moment(fecha2).format('MM');
+    return moment(fecha1).isSame(fecha3);
+};
+
+$scope.septiembre = function (date) {
+     var fecha = moment(date); 
+     var fecha1=moment(fecha).format('MM');
+     var fecha2=moment('2016-09-01');
+     var fecha3=moment(fecha2).format('MM');
+    return moment(fecha1).isSame(fecha3);
+};
+
+$scope.octubre = function (date) {
+     var fecha = moment(date); 
+     var fecha1=moment(fecha).format('MM');
+     var fecha2=moment('2016-10-01');
+     var fecha3=moment(fecha2).format('MM');
+    return moment(fecha1).isSame(fecha3);
+};
+
+$scope.noviembre = function (date) {
+     var fecha = moment(date); 
+     var fecha1=moment(fecha).format('MM');
+     var fecha2=moment('2016-11-01');
+     var fecha3=moment(fecha2).format('MM');
+    return moment(fecha1).isSame(fecha3);
+};
+
+$scope.diciembre = function (date) {
+     var fecha = moment(date); 
+     var fecha1=moment(fecha).format('MM');
+     var fecha2=moment('2016-12-01');
+     var fecha3=moment(fecha2).format('MM');
+    return moment(fecha1).isSame(fecha3);
+};
+
 })
 
 .controller('graficaCtrl', function ($scope) {

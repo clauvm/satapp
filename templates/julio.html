@@ -3,7 +3,7 @@
 
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="reporte in reportes | orderBy: 'reporte.created':true" ng-show="enero(reporte.created)" href="#/tab/reportes/{{reporte._id}}">
+      <ion-item ng-repeat="reporte in reportes | orderBy: 'reporte.created':true" ng-show="julio(reporte.created)" href="#/tab/reportes/{{reporte._id}}">
      {{reporte.created|date:'medium'}}   
 
       </ion-item>
