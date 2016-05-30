@@ -1,17 +1,50 @@
 <ion-view view-title="{{reporte.created|date:'medium'}}" ng-init="findOne()">
 
   <ion-content class="padding">
-  <h1>Reporte del {{reporte.created|date:'medium'}}</h1>
+  <h2>Reporte del {{reporte.created|date:'medium'}}</h2>
 
-    <p>
-       {{reporte.accelx}}
-          {{reporte.accely}}
-           {{reporte.accelz}}
-            {{reporte.gyrox}}
-            {{reporte.gyroy}}
-            {{reporte.gyroz}}
-            {{reporte.humedad}}
-    </p>
+    <table class="table table-bordered">
+                <tr>
+                    <td>Fecha</td>
+                    <td>{{reporte.created|date: medium}}</td>
+                </tr>
+                <tr>
+                    <td>Acceleracion eje x</td>
+                    <td>{{reporte.accelx}}</td>
+                </tr>
+                <tr>
+                    <td>Aceleracion eje y</td>
+                    <td>{{reporte.accely}}</td>
+                </tr>
+                <tr>
+                    <td>Aceleracion eje z</td>
+                    <td>{{reporte.accelz}}</td>
+                </tr>
+                <tr>
+                    <td>Giroscopio eje x</td>
+                    <td>{{reporte.gyrox}}</td>
+                </tr>
+                <tr>
+                    <td>Giroscopio eje y</td>
+                    <td>{{reporte.gyroy}}</td>
+                </tr>
+                <tr>
+                    <td>Giroscopio eje z</td>
+                    <td>{{reporte.gyroz}}</td>
+                </tr>
+                <tr>
+                    <td>Grado de humedad</td>
+                    <td>{{reporte.humedad}}</td>
+                </tr>
+                <tr>
+                    <td>Nivel de humedad</td>
+                    <td>{{humedad}}</td>
+                </tr>
+                <tr>
+                    <td>Nivel de movimiento</td>
+                    <td>{{movimiento}}</td>
+                </tr>
+      </table>
     
   </ion-content>
 </ion-view>

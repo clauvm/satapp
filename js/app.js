@@ -50,6 +50,16 @@ angular.module('starter', ['ionic', 'ngResource', 'starter.controllers', 'starte
     }
   })
 
+  .state('tab.mineria', {
+    url: '/mineria',
+    views: {
+      'tab-mineria': {
+        templateUrl: 'templates/mineria.html',
+        controller: 'mineriaCtrl'
+      }
+    }
+  })
+
    .state('tab.users', {
     url: '/users',
     views: {
@@ -235,6 +245,26 @@ angular.module('starter', ['ionic', 'ngResource', 'starter.controllers', 'starte
         'tab-grafica': {
           templateUrl: 'templates/grafica.html',
           controller: 'graficaCtrl'
+        }
+      }
+    })
+
+  .state('tab.graficaIMU', {
+      url: '/graficaIMU',
+      views: {
+        'tab-grafica': {
+          templateUrl: 'templates/graficaIMU.html',
+          controller: 'graficaCtrl'
+        }
+      }
+    })
+
+  .state('tab.graficaHum', {
+      url: '/graficaHum',
+      views: {
+        'tab-grafica': {
+          templateUrl: 'templates/graficaHum.html',
+          controller: 'graficaHumCtrl'
         }
       }
     })

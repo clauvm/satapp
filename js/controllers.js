@@ -19,7 +19,30 @@ angular.module('starter.controllers', [])
     };
 
     $scope.findOne=function () {
+      $scope.movimiento;
+      $scope.humedad;
+      var repo = Reportes.get({reporteID : $stateParams.reporteID});
+
        $scope.reporte=Reportes.get({reporteID : $stateParams.reporteID});
+       if(repo.humedad>=0&&repo.humedad<=341){
+        $scope.humedad='alta';
+    }
+    else if(repo.humedad>=342&&repo.humedad<=683){
+        $scope.humedad='normal';
+    }
+    else{
+        $scope.humedad='baja';
+    }
+    if(repo.movi>=126&&repo.movi<=300)
+    {
+        $scope.movimiento='bajo';
+    }
+    else if(repo.movi>=301&&repo.movi<=800){
+        $scope.movimiento='medio';
+    }
+    else{
+        $scope.movimiento='alto';
+    }
   }; 
    
    $scope.ultimaSemana = function (date) {
@@ -182,6 +205,79 @@ transform: function(m) {
 });
 
 })
+
+.controller('graficaHumCtrl', function ($scope) {
+var pubnub = PUBNUB.init({
+  publish_key: 'pub-c-0bc83ee5-cdfd-4615-964f-0fa183fe86a9',
+  subscribe_key: 'sub-c-981320b8-08cc-11e6-8c3e-0619f8945a4f'
+});
+var channel = 'humi';
+eon.chart({
+  channel: channel,
+  generate: {
+    bindto: '#temp',
+    data: {
+      type: 'line',
+    },
+    axis: {
+      x: {
+        type: 'timeseries',
+        tick: {
+          format: '%H:%m:%S',
+          fit: true
+        },
+        label: {
+          text: 'Time',
+        }
+      },
+      y: {
+        label: {
+          text: 'Humedad',
+          position: 'outer-middle'
+        },
+        tick: {
+          format: function (d) {
+            var df = Number( d3.format('.2f')(d) );
+            return df;
+          }
+        }
+      }
+  }
+},
+//history:true,
+pubnub: pubnub,
+limit: 30,
+transform: function(m) {
+  return { eon: {
+      humedad: m.humedad
+    }}
+  }
+});
+
+})
+
+.controller('mineriaCtrl', function ($scope, $http) {
+   $scope.resultado = "esperando...";
+   $scope.valorSuelo = function () {
+     $http(
+     {
+      url: 'http://satdeslizamientos-cavm.rhcloud.com/mineriaDatos',
+      method: 'POST',
+      data: {
+        suelo: $scope.suelo
+      }
+     }).
+     then(function (response) {
+       $scope.resultado=response.data;
+       console.log(response.data);
+     }, 
+     function (response) {
+       console.log('fallo');
+     });
+   };
+   $scope.suelos=["grava", "arcilla", "compacto"]; 
+})
+
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true
