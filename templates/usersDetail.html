@@ -1,7 +1,7 @@
 <ion-view view-title="{{user.nombre}}" ng-init="findOne()">
 
   <ion-content class="padding">
-  <h1>{{user.nombre}}{{user.apellidop}}</h1>
+  <h2>{{user.nombre}} {{user.apellidop}}</h2>
 
     <p>
        {{user.nombre}}
@@ -11,6 +11,41 @@
             {{user.rol}}
 
     </p>
+    <table class="table table-bordered">
+                <tr>
+                    <td>Carnet de Identidad</td>
+                    <td>{{user.ci}}</td>
+                </tr>
+                <tr>
+                    <td>Nombre</td>
+                    <td>{{user.nombre}}</td>
+                </tr>
+                <tr>
+                    <td>Apellido Paterno</td>
+                    <td>{{user.apellidop}}</td>
+                </tr>
+                <tr>
+                    <td>Apellido Materno</td>
+                    <td>{{user.apellidom}}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{user.email}}</td>
+                </tr>
+                <tr>
+                    <td>Telefono</td>
+                    <td>{{user.telefono}}</td>
+                </tr>
+                <tr>
+                    <td>Username</td>
+                    <td>{{user.username}}</td>
+                </tr>
+                <tr>
+                    <td>Rol</td>
+                    <td>{{user.rol}}</td>
+                </tr>
+                
+      </table>
     
   </ion-content>
 </ion-view>
